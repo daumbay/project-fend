@@ -21,5 +21,7 @@ async function getLatLong (url = '') {
 document.getElementById('generate').addEventListener('click', () => {
     const zipCode = document.getElementById('zip').value;
     const response = getLatLong(apiEndPoint + zipCode + apiKey);
-    console.log(response);
+    response.then((data) => {
+        console.log(data);
+    });
 });

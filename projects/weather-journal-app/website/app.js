@@ -18,6 +18,19 @@ async function getData (url = '') {
     }
 }
 
+async function postData (url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST'
+    });
+
+    try {
+        const newData = await response.json();
+        return newData;
+    } catch (error) {
+        console.log('error', error);
+    }
+}
+
 function latlon (location) {
     const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}${apiKey}`;
     return getData(urlWeather);

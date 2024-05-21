@@ -8,8 +8,8 @@ const apiEndPoint = 'https://api.openweathermap.org/geo/1.0/zip?zip='
 const zipCode = document.getElementById('zip').value;
 const apiKey = '&appid=aac1d7f7625ee92bc0a51d78900a24a7';
 
-async function getLatLong (data) {
-    const response = await fetch(apiEndPoint + zipCode + apiKey, {
+async function getLatLong (url = '', data = {}) {
+    const response = await fetch(url, {
         method: 'GET',
         credentials: 'same-origin',
         headers: {'Content-Type': 'application/json'},
@@ -23,3 +23,7 @@ async function getLatLong (data) {
         console.log('error', error);
     }
 }
+
+document.getElementById('generate').addEventListener('click', () => {
+    const response = getLatLong(apiEndPoint + zipCode + apiKey, {});
+});

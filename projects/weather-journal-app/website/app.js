@@ -37,13 +37,13 @@ async function postData (url = '', data = {}) {
 
 // Populate relevant UI with data from server
 async function updateUI () {
-    const response = await fetch('all');
+    const response = await fetch('/all');
 
     try {
         const newData = await response.json();
-        document.getElementById('temp').innerText = newData[newData.length-1].temperature + ' degrees';
-        document.getElementById('date').innerText = newData[newData.length-1].date;
-        document.getElementById('content').innerText = newData[newData.length-1].value;
+        document.getElementById('temp').innerText = newData.temperature + ' degrees';
+        document.getElementById('date').innerText = newData.date;
+        document.getElementById('content').innerText = newData.value;
     } catch (error) {
         console.log('error', error);
     }

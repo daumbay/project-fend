@@ -41,7 +41,7 @@ async function updateUI () {
 
     try {
         const newData = await response.json();
-        document.getElementById('temp').innerText = newData[newData.length-1].temperature;
+        document.getElementById('temp').innerText = newData[newData.length-1].temperature + ' degrees';
         document.getElementById('date').innerText = newData[newData.length-1].date;
         document.getElementById('content').innerText = newData[newData.length-1].value;
     } catch (error) {
@@ -51,7 +51,7 @@ async function updateUI () {
 
 // Recover weather data from latlon data
 function latlon (location) {
-    const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}${apiKey}`;
+    const urlWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}${apiKey}&units=imperial`;
     return getData(urlWeather);
 }
 
@@ -61,7 +61,9 @@ function weatherData (weather) {
     return temperature;
 }
 
-document.getElementById('generate').addEventListener('click', () => {
+document.getElementById('generate').addEventListener('click', performAction)
+
+function performAction () {
     // Get zipcode from input element
     const zipCode = document.getElementById('zip').value;
     
@@ -78,5 +80,9 @@ document.getElementById('generate').addEventListener('click', () => {
     })
     // Update UI by combining weather data and mood details from site
     .then(() => updateUI())
-});
+    // Catch and throw any errors
+    .catch((error) => {
+        console.log('error', error);
+    })
+}
     

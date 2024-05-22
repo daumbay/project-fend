@@ -36,15 +36,16 @@ body{
 }
 
 #entryHolder{
-    height: 10vh;
+    height: 20vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 #date{
     text-align: center;
+    line-height: 1.5em;
 }
 
 #temp{
@@ -81,8 +82,8 @@ input{
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 80%;
+    height: 5vh;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
@@ -100,6 +101,8 @@ textarea{
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: 1px solid black;
+    width: 80%;
+    height: 20vh;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,

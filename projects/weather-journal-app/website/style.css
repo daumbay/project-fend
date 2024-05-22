@@ -4,10 +4,12 @@ body{
 }
 
 #app{
+    margin: 0 auto;
     display: grid;
     grid-auto-rows: min-content;
     grid-template-columns: minmax(300px, auto);
     height:100vh;
+    width: 30vw;
     background: #95aaf6;
     color: #efd756;
     justify-content: center;
@@ -69,15 +71,12 @@ label{
 }
 
 input{
-    /* display:block;
-    height: 60px;
-    width: 320px; */
     background: #8093df;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
-    width: 100%;
+    width: 80%;
     border: 1px solid black;
 }
 
